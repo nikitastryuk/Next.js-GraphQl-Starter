@@ -16,3 +16,7 @@ Turns Prettier rules into ESLint rules.
 
 - npm install --save-dev eslint-plugin-simple-import-sort
 Autofixable import sorting.
+
+# Lint staged + pre-commit hook
+- npm install --save-dev simple-git-hooks
+- npm install --save-dev lint-staged
