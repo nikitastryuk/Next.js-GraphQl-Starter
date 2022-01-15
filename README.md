@@ -13,3 +13,6 @@ Turns off all ESLint rules that have the potential to interfere with Prettier ru
 
 - npm install --save-dev eslint-plugin-prettier
 Turns Prettier rules into ESLint rules.
+
+- npm install --save-dev eslint-plugin-simple-import-sort
+Autofixable import sorting.
