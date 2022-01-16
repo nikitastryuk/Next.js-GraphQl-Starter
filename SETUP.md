@@ -31,3 +31,8 @@
 - npm install --save-dev faker
   https://dev.to/unzor/how-to-use-fakerjs-after-its-endgame-36a5
 - npm install --save-dev @types/faker
+
+# Graphql
+
+- npm install graphql
+- npm install urql
