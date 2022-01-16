@@ -23,3 +23,11 @@
 
 - npm install --save-dev simple-git-hooks
 - npm install --save-dev lint-staged
+
+# Prisma
+
+- npm install --save-dev prisma
+- npm install --save-dev ts-node
+- npm install --save-dev faker
+  https://dev.to/unzor/how-to-use-fakerjs-after-its-endgame-36a5
+- npm install --save-dev @types/faker
