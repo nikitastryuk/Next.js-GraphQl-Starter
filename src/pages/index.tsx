@@ -23,8 +23,16 @@ query TorontoWeather($city: String!) {
 }
 `;
 
+interface Data {
+  id: string;
+}
+
+interface Variables {
+  city: string;
+}
+
 const Home: NextPage = () => {
-  const [result] = useQuery({
+  const [result] = useQuery<Data, Variables>({
     query: WeatherQuery,
     variables: { city: 'Toronto' },
   });
