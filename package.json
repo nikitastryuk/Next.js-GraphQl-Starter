@@ -39,6 +39,7 @@
     "pre-commit": "npx lint-staged"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./prisma/seed.ts"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/server/db/seed.ts",
+    "schema": "src/server/db/schema.prisma"
   }
 }
