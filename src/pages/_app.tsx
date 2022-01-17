@@ -3,7 +3,7 @@ import { Provider } from 'urql';
 
 import { client, ssrCache } from 'src/client/graphql/urqlClient';
 
-import 'styles/globals.css';
+import 'src/styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   if (pageProps.urqlState) {
