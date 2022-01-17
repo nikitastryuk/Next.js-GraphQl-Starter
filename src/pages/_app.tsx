@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import { Provider } from 'urql';
 
-import { client, ssrCache } from 'src/urqlClient';
+import { client, ssrCache } from 'src/graphql/urqlClient';
 
 import 'styles/globals.css';
 

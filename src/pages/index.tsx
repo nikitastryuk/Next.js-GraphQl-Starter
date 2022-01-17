@@ -1,40 +1,20 @@
 import type { NextPage } from 'next';
 import { useQuery } from 'urql';
 
-import { client, ssrCache } from 'src/urqlClient';
+import { client, ssrCache } from 'src/graphql/urqlClient';
 
 const WeatherQuery = `
-query TorontoWeather($city: String!) {
-  getCityByName(name: $city) {
-    id
+query GetUsersQuery {
+  users {
     name
-    weather {
-      summary {
-        title
-        description
-      }
-      temperature {
-        min
-        max
-        actual
-      }
-    }
+    email
   }
 }
 `;
 
-interface Data {
-  id: string;
-}
-
-interface Variables {
-  city: string;
-}
-
 const Home: NextPage = () => {
-  const [result] = useQuery<Data, Variables>({
+  const [result] = useQuery({
     query: WeatherQuery,
-    variables: { city: 'Toronto' },
   });
   const { data, fetching, error } = result;
 
@@ -43,10 +23,5 @@ const Home: NextPage = () => {
 
   return <pre>{JSON.stringify(data, null, 2)}</pre>;
 };
-
-export async function getStaticProps() {
-  await client.query(WeatherQuery, { city: 'Toronto' }).toPromise();
-  return { props: { urqlState: ssrCache.extractData() }, revalidate: 60 };
-}
 
 export default Home;

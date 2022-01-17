@@ -11,7 +11,7 @@ const isServerSide = typeof window === 'undefined';
 export const ssrCache = ssrExchange({ isClient: !isServerSide });
 
 export const client = createClient({
-  url: 'https://graphql-weather-api.herokuapp.com/',
+  url: 'http://localhost:3000/api/graphql',
   exchanges: [dedupExchange, cacheExchange, ssrCache, fetchExchange],
   fetchOptions: () => {
     return { headers: {} };

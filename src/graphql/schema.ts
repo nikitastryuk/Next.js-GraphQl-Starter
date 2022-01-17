@@ -2,7 +2,7 @@ import { join } from 'path';
 
 import { connectionPlugin, makeSchema } from 'nexus';
 
-import * as types from './types';
+import * as types from './nexus';
 
 // types: an array which will include all of the different object types.
 

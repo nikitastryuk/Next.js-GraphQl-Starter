@@ -7,7 +7,8 @@
     "start": "next start",
     "typecheck": "tsc --project tsconfig.json --pretty --noEmit",
     "lint": "eslint . --ext .ts,.tsx --cache --cache-location=node_modules/.cache/.eslintcache --fix",
-    "prisma:studio": "prisma studio"
+    "generate:nexus": "ts-node --transpile-only src/graphql/schema.ts",
+    "generate:prisma": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "3.8.1",
@@ -42,7 +43,7 @@
     "pre-commit": "npx lint-staged"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts",
+    "seed": "ts-node ./src/prisma/seed.ts",
     "schema": "src/prisma/schema.prisma"
   }
 }
