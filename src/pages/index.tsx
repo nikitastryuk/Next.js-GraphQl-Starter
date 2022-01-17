@@ -1,21 +1,9 @@
 import type { NextPage } from 'next';
-import { useQuery } from 'urql';
 
-import { client, ssrCache } from 'src/graphql/urqlClient';
-
-const WeatherQuery = `
-query GetUsersQuery {
-  users {
-    name
-    email
-  }
-}
-`;
+import { useGetUsersQuery } from '../client/graphql/getUsers.generated';
 
 const Home: NextPage = () => {
-  const [result] = useQuery({
-    query: WeatherQuery,
-  });
+  const [result] = useGetUsersQuery();
   const { data, fetching, error } = result;
 
   if (fetching) return <div>Loading</div>;

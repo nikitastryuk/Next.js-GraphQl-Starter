@@ -1,6 +1,11 @@
 {
   "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
   "plugins": ["simple-import-sort"],
+  "ignorePatterns": [
+    "**/*.generated.*",
+    "**/*.graphql.d.ts",
+    "**/*.graphqls.d.ts"
+  ],
   "rules": {
     // Import
     "simple-import-sort/exports": "error",
