@@ -1,7 +1,5 @@
 # Next.js GraphQl Starter
 
----
-
 ## Tech stack
 
 1. [Next.js](https://nextjs.org)
@@ -57,7 +55,7 @@ npm run dev
 
 Now you should have project running locally and should be able to visit http://localhost:3000 🎉
 
-#### Scripts
+### Scripts
 
 The **three most important commands** you'll run frequently during development:
 
