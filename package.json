@@ -7,7 +7,8 @@
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx --cache --cache-location=node_modules/.cache/.eslintcache --fix",
     "typecheck": "tsc --project tsconfig.json --pretty --noEmit",
-    "generate:nexus": "ts-node --transpile-only src/graphql/schema.ts",
+    "generate": "npm run generate:prisma && npm run generate:nexus && npm run generate:graphql-codegen",
+    "generate:nexus": "ts-node --transpile-only src/server/graphql/schema.ts",
     "generate:prisma": "prisma generate",
     "generate:graphql-codegen": "graphql-codegen"
   },
