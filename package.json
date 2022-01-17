@@ -12,7 +12,8 @@
     "generate": "npm run generate:prisma && npm run generate:nexus && npm run generate:graphql-codegen",
     "generate:nexus": "ts-node --transpile-only src/server/graphql/schema.ts",
     "generate:prisma": "prisma generate",
-    "generate:graphql-codegen": "graphql-codegen"
+    "generate:graphql-codegen": "graphql-codegen",
+    "prisma:migrate": "prisma migrate dev --preview-feature"
   },
   "dependencies": {
     "@prisma/client": "3.8.1",

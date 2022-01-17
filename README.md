@@ -1,6 +1,6 @@
 # Next.js GraphQl Starter
 
-## Tech stack
+### Tech stack
 
 1. [Next.js](https://nextjs.org)
 2. [Prisma](https://prisma.io)
