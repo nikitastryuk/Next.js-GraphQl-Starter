@@ -25,28 +25,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v2
+      - name: Setup node env
+        uses: actions/setup-node@v2.1.2
         with:
-          node-version: '14'
+          node-version: ${{ matrix.node }}
 
-      # Cache node_modules for faster CI runs if the yarn.lock doesn't change change
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Restore yarn cache
+      - name: Cache node_modules
         uses: actions/cache@v2
-        id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-node-
 
-      # Throw an error if the yarn.lock file doesn't match the installed dependencies (rather than updating it in-place, which it does by default locally)
-      - name: Install
-        run: yarn install --frozen-lockfile --silent
+      - name: Install dependencies
+        run: npm ci
 
       - name: Copy example env
         run: cp .env.example .env
