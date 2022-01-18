@@ -13,10 +13,12 @@
     "generate:nexus": "ts-node --transpile-only src/server/graphql/schema.ts",
     "generate:prisma": "prisma generate",
     "generate:graphql-codegen": "graphql-codegen",
-    "prisma:migrate": "prisma migrate dev --preview-feature"
+    "prisma:migrate": "prisma migrate dev --preview-feature",
+    "prisma:studio": "prisma studio"
   },
   "dependencies": {
     "@prisma/client": "3.8.1",
+    "@urql/exchange-graphcache": "^4.3.6",
     "apollo-server-micro": "3.6.1",
     "graphql": "15.6.0",
     "micro-cors": "0.1.1",
