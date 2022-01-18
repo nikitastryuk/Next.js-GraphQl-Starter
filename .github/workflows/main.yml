@@ -2,24 +2,24 @@ name: CI
 on: push
 jobs:
   test:
-    name: Lint & typecheck
+    name: Lint & Typecheck
     runs-on: ubuntu-latest
 
     # Start a Postgres instance, which is used during tests
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: starter
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    # services:
+    #   postgres:
+    #     image: postgres
+    #     env:
+    #       POSTGRES_USER: postgres
+    #       POSTGRES_PASSWORD: postgres
+    #       POSTGRES_DB: postgres
+    #     ports:
+    #       - 5432:5432
+    #     options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
-    env:
-      # This needs to match the POSTGRES_* env variables set in the Postgres service above
-      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/starter
+    # env:
+    #   # This needs to match the POSTGRES_* env variables set in the Postgres service above
+    #   DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
 
     steps:
       - name: Checkout
@@ -47,8 +47,8 @@ jobs:
       - name: Generate
         run: npm run generate
 
-      - name: Migrate the CI database
-        run: npm run prisma:migrate
+      # - name: Migrate the CI database
+      #   run: npm run prisma:migrate
 
       - name: Lint
         run: npm run lint
@@ -57,7 +57,7 @@ jobs:
         run: npm run typecheck
 
       # - name: Tests (Jest)
-      #   run: yarn test
+      #   run: npm run test
 
       # - name: End-to-end tests (Cypress)
       #   uses: cypress-io/github-action@v2
